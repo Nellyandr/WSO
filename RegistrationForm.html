@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WSO Registration Form</title>
+  <link rel="stylesheet" href="registration.css" />
+</head>
+
+<body>
+  <h1>WSO</h1>
+
+  <form action="#" th:action="@{/registrationform}" method="post" th:object="${user}" enctype="multipart/form-data">
+
+    <fieldset>
+      <p>Welcome to WSO – Let’s get you signed up!</p>
+
+      <label for="name">
+        First Name
+        <input id="name" name="name" type="text" required />
+      </label>
+
+      <label for="last-name">
+        Last Name
+        <input id="last-name" name="last-name" type="text" required />
+      </label>
+
+      <label for="job">
+        Job Position
+        <input id="job" name="job" type="text" required />
+      </label>
+
+      <label for="email">
+        Personal Email
+        <input id="email" name="email" type="email" required />
+      </label>
+
+      <label for="password">
+        Create your Password
+        <input id="password" name="password" type="password" required />
+      </label>
+    </fieldset>
+
+    <fieldset>
+      <label class="checkbox-label">
+        <input type="checkbox" name="notification" required />
+        <span>I agree to receive notifications from the system.</span>
+      </label>
+
+      <label class="checkbox-label">
+        <input type="checkbox" name="terms-and-conditions" required />
+        <span>I agree to the terms and conditions.</span>
+      </label>
+    </fieldset>
+    
+    <a href="HomePage.html" class="button-link">Sign up</a>
+
+    
+  </form>
+</body>
+</html>

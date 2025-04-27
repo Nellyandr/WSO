@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <title>Αίτηση Άδειας</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .day {
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+            font-size: 16px;
+        }
+
+        .available {
+            background-color: #d4edda;
+            border: 2px solid #28a745;
+            color: #155724;
+        }
+
+        .unavailable {
+            background-color: #f8d7da;
+            border: 2px solid #dc3545;
+            color: #721c24;
+            cursor: not-allowed;
+        }
+
+        .day:hover.available {
+            background-color: #c3e6cb;
+        }
+
+        .disabled {
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        .confirmation, .requests-left, .no-requests, .info {
+            background-color: #e0ffe0;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .requests-left {
+            background-color: #fff3cd;
+            border: 2px solid #ffeeba;
+            color: #856404;
+        }
+
+        .no-requests {
+            background-color: #f8d7da;
+            border: 2px solid #dc3545;
+            color: #721c24;
+        }
+
+        .info {
+            background-color: #f0f8ff;
+            border: 2px solid #b8daff;
+            color: #004085;
+        }
+
+        .button-next, .confirm-button {
+            margin: 20px auto 0;
+            display: block;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .button-next:hover, .confirm-button:hover {
+            background-color: #0056b3;
+        }
+
+        .confirm-button {
+            background-color: #28a745;
+        }
+
+        .confirm-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="logo">WSO</div>
+
+<div class="container">
+    <h1>Ημερολόγιο Αιτήσεων Άδειας</h1>
+
+    <div class="info">
+        Επιλέξτε μία ημέρα για να κάνετε αίτηση άδειας.<br>
+        Οι πράσινες ημέρες είναι διαθέσιμες.<br>
+        Οι κόκκινες ημέρες δεν είναι διαθέσιμες.<br>
+        Μέγιστο πλήθος αιτήσεων: 7.
+    </div>
+
+    <div class="calendar" id="calendar"></div>
+
+    <div class="requests-left" id="requestsLeft">
+        7 υπολειπόμενες άδειες
+    </div>
+
+    <div class="confirmation" id="confirmation"></div>
+    <div class="no-requests" id="noRequests" style="display:none;">Δεν έχετε υπολειπόμενα ρεπό</div>
+
+    <button class="button-next" onclick="nextWeek()">Επόμενη Εβδομάδα</button>
+    <button class="confirm-button" id="confirmLeaveBtn" style="display:none;" onclick="confirmLeave()">Επιβεβαίωση Άδειας</button>
+</div>
+
+<script>
+    let weeks = [
+        ['Δευτέρα', 'Τετάρτη', 'Παρασκευή'], 
+        ['Τρίτη', 'Πέμπτη', 'Σάββατο'],       
+        ['Δευτέρα', 'Παρασκευή']              
+    ];
+
+    const daysOfWeek = ['Δευτέρα', 'Τρίτη', 'Τετάρτη', 'Πέμπτη', 'Παρασκευή', 'Σάββατο', 'Κυριακή'];
+    const calendar = document.getElementById('calendar');
+    const confirmation = document.getElementById('confirmation');
+    const requestsLeft = document.getElementById('requestsLeft');
+    const noRequests = document.getElementById('noRequests');
+    const confirmLeaveBtn = document.getElementById('confirmLeaveBtn');
+    let remainingRequests = 7; 
+    let currentWeek = 0;
+    let selectedDay = null;
+
+    function createCalendar(availableDays) {
+        calendar.innerHTML = '';
+
+        daysOfWeek.forEach(day => {
+            const div = document.createElement('div');
+            div.classList.add('day');
+
+            if (availableDays.includes(day)) {
+                div.classList.add('available');
+                div.addEventListener('click', () => selectDay(div, day));
+            } else {
+                div.classList.add('unavailable');
+            }
+
+            div.textContent = day;
+            calendar.appendChild(div);
+        });
+    }
+
+    function selectDay(div, day) {
+        if (remainingRequests > 0) {
+            selectedDay = day;
+            confirmation.innerHTML = `Θέλετε να κάνετε αίτηση άδειας για την <strong>${day}</strong>?`;
+            confirmLeaveBtn.style.display = 'block';
+        }
+    }
+
+    function confirmLeave() {
+        if (selectedDay && remainingRequests > 0) {
+            const now = new Date().toLocaleString('el-GR');
+            confirmation.innerHTML = `Η αίτησή σας καταχωρήθηκε.<br> 
+            Ημέρα: <strong>${selectedDay}</strong><br>
+            Ώρα Δήλωσης: <strong>${now}</strong>`;
+            confirmation.style.display = 'block';
+
+            remainingRequests--;
+            updateRequestsLeft();
+
+            if (remainingRequests === 0) {
+                disableAllAvailableDays();
+                noRequests.style.display = 'block';
+            }
+
+            confirmLeaveBtn.style.display = 'none';
+        }
+    }
+
+    function updateRequestsLeft() {
+        if (remainingRequests > 0) {
+            requestsLeft.innerHTML = `${remainingRequests} υπολειπόμενες άδειες`;
+            noRequests.style.display = 'none';
+        }
+    }
+
+    function disableAllAvailableDays() {
+        const days = document.querySelectorAll('.available');
+        days.forEach(day => {
+            day.classList.add('disabled');
+        });
+    }
+
+    function nextWeek() {
+        currentWeek = (currentWeek + 1) % weeks.length;
+        createCalendar(weeks[currentWeek]);
+        confirmation.style.display = 'none';
+        confirmLeaveBtn.style.display = 'none';
+
+        if (remainingRequests === 0) {
+            disableAllAvailableDays();
+            noRequests.style.display = 'block';
+        }
+    }
+
+    createCalendar(weeks[currentWeek]);
+</script>
+
+</body>
+</html>

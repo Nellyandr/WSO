@@ -99,7 +99,7 @@
             color: #004085;
         }
 
-        .button-next, .confirm-button {
+        .button-next, .confirm-button, .back-button {
             margin: 20px auto 0;
             display: block;
             padding: 10px 20px;
@@ -111,7 +111,7 @@
             cursor: pointer;
         }
 
-        .button-next:hover, .confirm-button:hover {
+        .button-next:hover, .confirm-button:hover, .back-button:hover {
             background-color: #0056b3;
         }
 
@@ -121,6 +121,14 @@
 
         .confirm-button:hover {
             background-color: #218838;
+        }
+
+        .back-button {
+            background-color: #dc3545;
+        }
+
+        .back-button:hover {
+            background-color: #c82333;
         }
     </style>
 </head>
@@ -149,6 +157,9 @@
 
     <button class="button-next" onclick="nextWeek()">Επόμενη Εβδομάδα</button>
     <button class="confirm-button" id="confirmLeaveBtn" style="display:none;" onclick="confirmLeave()">Επιβεβαίωση Άδειας</button>
+    
+    <!-- Κουμπί Επιστροφής -->
+    <button class="back-button" onclick="window.location.href='HomePage.html'">Επιστροφή στην Αρχική Οθόνη</button>
 </div>
 
 <script>
@@ -242,6 +253,7 @@
     }
 
     createCalendar(weeks[currentWeek]);
+
 </script>
 
 </body>

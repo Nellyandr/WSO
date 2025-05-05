@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Final Work Schedule</title>
+ <style>
+   body {
+     font-family: Arial, sans-serif;
+     background-color: #f3f4f6;
+     margin: 0;
+     padding: 20px;
+   }
+   .container {
+     max-width: 1000px;
+     margin: auto;
+     background: white;
+     padding: 20px;
+     border-radius: 12px;
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+   }
+   .header {
+           background-color: #1b4a56; /* ίδιο με το αρχικό background */
+           padding: 15px 30px;
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+       }
+
+
+       .header .left,
+       .header .right {
+           display: flex;
+           align-items: center;
+           gap: 20px;
+       }
+
+
+       .header .logo {
+           font-size: 24px;
+           font-weight: bold;
+           color: white;
+       }
+
+
+       .header button {
+           background: rgba(136, 181, 192, 0.4);
+           border: none;
+           font-size: 16px;
+           cursor: pointer;
+           color: white;
+           border-radius: 999px;
+           padding: 10px 20px;
+           transition: background-color 0.3s;
+           backdrop-filter: blur(4px);
+       }
+
+
+       .header button:hover {
+           background-color: #555;
+       }
+
+
+   h1 {
+     text-align: center;
+     margin-bottom: 20px;
+     font-size: 24px;
+   }
+
+
+   table {
+     width: 100%;
+     border-collapse: collapse;
+   }
+   .rest-day {
+ background-color: #d1fae5;
+ font-weight: bold;
+ color: #065f46;
+}
+.morning-shift {
+ background-color: #fef08a;
+ font-weight: bold;
+ color: #000000;
+}
+.afternoon-shift {
+ background-color: #fe8a8a;
+ font-weight: bold;
+ color: #060505;
+}
+.second-afternoon-shift {
+ background-color: #df5757;
+ font-weight: bold;
+ color: #060505;
+}
+.second-morning-shift {
+ background-color: #d78c35;
+ font-weight: bold;
+ color: #060505;
+}
+.night-shift {
+ background-color: #bdb5ab;
+ font-weight: bold;
+ color: #060505;
+}
+.second-night-shift {
+ background-color: #a8a198;
+ font-weight: bold;
+ color: #060505;
+}
+   thead {
+     background-color: #e5e7eb;
+   }
+
+
+   th, td {
+     border: 1px solid #ccc;
+     padding: 10px;
+     text-align: center;
+   }
+
+
+   th.name-col, td.name-col {
+     text-align: left;
+     background-color: #f9fafb;
+     font-weight: 500;
+   }
+
+
+   tbody tr:nth-child(even) {
+     background-color: #f8f9fa;
+   }
+ </style>
+</head>
+<body>
+   <div class="header">
+       <div class="left">
+           <div class="logo">WSO</div>
+           <button onclick="location.href='HomePage.html'">Home</button>
+           <button onclick="location.href='Program.html'">Program</button>
+           <button onclick="location.href='MyRequests.html'">My Requests</button>
+           <button onclick="location.href='NewRequest.html'">New Request</button>
+       </div>
+       <div class="right">
+           <button onclick="location.href='EmployeeRequests.html'">Employee Requests</button>
+       </div>
+   </div>
+ <div class="container">
+   <h1> WORK SCHEDULE </h1>
+   <table>
+     <thead>
+       <tr>
+         <th class="name-col">Name</th>
+         <th>Monday</th>
+         <th>Tuesday</th>
+         <th>Wednesday</th>
+         <th>Thursday</th>
+         <th>Friday</th>
+         <th>Saturday</th>
+         <th>Sunday</th>
+       </tr>
+     </thead>
+     <tbody>
+       <tr>
+           <td class="name-col">Alagie</td>
+           <td class="afternoon-shift">14:00 - 22:00</td>
+         <td class="afternoon-shift">14:00 - 22:00</td>
+         <td class="afternoon-shift">14:00 - 22:00</td>
+         <td class="afternoon-shift">14:00 - 22:00</td>
+         <td class="rest-day">R</td>
+         <td class="rest-day">R</td>
+         <td class="rest-day">R</td>
+       </tr>
+       <tr>
+           <td class="name-col">Aris</td>
+           <td class="second-afternoon-shift">15:00 - 23:00</td>
+         <td class="second-afternoon-shift">15:00 - 23:00</td>
+         <td class="second-night-shift">23:00 - 07:00</td>
+         <td class="second-night-shift">23:00 - 07:00</td>
+         <td class="second-night-shift">23:00 - 07:00</td>
+         <td class="rest-day">R</td>
+         <td class="rest-day">R</td>
+       </tr>
+       <tr>
+           <td class="name-col">Kathleen</td>
+           <td class="rest-day">R</td>
+         <td class="rest-day">R</td>
+         <td class="second-afternoon-shift">15:00 - 23:00</td>
+         <td class="second-afternoon-shift">15:00 - 23:00</td>
+         <td class="second-afternoon-shift">15:00 - 23:00</td>
+         <td class="second-afternoon-shift">15:00 - 23:00</td>
+         <td class="second-afternoon-shift">15:00 - 23:00</td>
+       </tr>
+       <tr>
+           <td class="name-col">Panagiotis</td>
+           <td class="second-night-shift">23:00 - 07:00</td>
+         <td class="second-night-shift">23:00 - 07:00</td>
+         <td class="rest-day">R</td>
+         <td class="rest-day">R</td>
+         <td class="rest-day">R</td>
+         <td class="rest-day">R</td>
+         <td class="second-night-shift">23:00 - 07:00</td>
+       </tr>
+       <tr>
+           <td class="name-col">Sotiria</td>
+           <td class="morning-shift">07:00 - 15:00</td>
+         <td class="morning-shift">07:00 - 15:00</td>
+         <td class="morning-shift">07:00 - 15:00</td>
+         <td class="rest-day">R</td>
+         <td class="rest-day">R</td>
+         <td class="rest-day">R</td>
+         <td class="morning-shift">07:00 - 15:00</td>
+       </tr>
+       <tr>
+           <td class="name-col">Maria</td>
+           <td class="second-morning-shift">10:00 - 18:00</td>
+         <td class="second-morning-shift">10:00 - 18:00</td>
+         <td class="second-morning-shift">10:00 - 18:00</td>
+         <td class="second-morning-shift">10:00 - 18:00</td>
+         <td class="second-morning-shift">10:00 - 18:00</td>
+         <td class="second-morning-shift">10:00 - 18:00</td>
+         <td class="second-morning-shift">10:00 - 18:00</td>
+       </tr>
+       <tr>
+           <td class="name-col">Vasiliki</td>
+           <td class="rest-day">R</td>
+         <td class="rest-day">R</td>
+         <td class="rest-day">R</td>
+         <td class="morning-shift">07:00 - 15:00</td>
+         <td class="morning-shift">07:00 - 15:00</td>
+         <td class="morning-shift">07:00 - 15:00</td>
+         <td class="rest-day">R</td>
+       </tr>
+       <tr>
+           <td class="name-col">Ioannis</td>
+           <td>Leave</td>
+         <td>Leave</td>
+         <td>Leave</td>
+         <td class="rest-day">R</td>
+         <td class="afternoon-shift">14:00 - 22:00</td>
+         <td class="second-night-shift">23:00 - 07:00</td>
+         <td class="second-night-shift">23:00 - 07:00</td>
+       </tr>
+       <tr>
+           <td class="name-col">Marios</td>
+           <td class="night-shift">22:30 - 06:30</td>
+         <td class="night-shift">22:30 - 06:30</td>
+         <td class="night-shift">22:30 - 06:30</td>
+         <td class="rest-day">R</td>
+         <td class="rest-day">R</td>
+         <td class="afternoon-shift">14:00-22:00</td>
+         <td class="afternoon-shift">14:00-22:00</td>
+       </tr>
+       <tr>
+           <td class="name-col">Xenia</td>
+           <td>Leave</td>
+         <td>Leave</td>
+         <td>Leave</td>
+         <td>Leave</td>
+         <td>Leave</td>
+         <td class="rest-day">R</td>
+         <td class="rest-day">R</td>
+       </tr>
+       </tbody>
+   </table>
+ </div>
+</body>
+</html>

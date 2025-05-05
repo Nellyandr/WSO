@@ -17,39 +17,44 @@ h1 {
   margin-bottom: 20px;
 }
 
- .navbar {
-    background-color: #1b4a56;
-    overflow: hidden;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-  }
- 
-  .navbar > div {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
- 
-  .navbar button {
-    background-color: rgba(136, 181, 192, 0.4);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 999px;
-    transition: background-color 0.3s;
-    backdrop-filter: blur(4px);
-  }
- 
- 
- 
-  .navbar button:hover {
-    background-color: #555;
-  }
+.header {
+            background-color: #1b4a56; /* ίδιο με το αρχικό background */
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .header .left,
+        .header .right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .header button {
+            background: rgba(136, 181, 192, 0.4);
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            color: white;
+            border-radius: 999px;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+            backdrop-filter: blur(4px);
+        }
+
+        .header button:hover {
+            background-color: #555;
+        }
+  
  
 
 
@@ -127,18 +132,19 @@ h1 {
 </head>
 <body>
 
-  <!-- Navbar with Home button -->
-  <div class="navbar">
-    <div>
-      <button onclick="location.href='index.html'">Home</button>  <!-- Home Button -->
-      <button onclick="location.href='index.html'">Programm</button>
-      <button class="active" onclick="location.href='my-requests.html'">My Requests</button>
-      <button onclick="active">New Request</button>
-    </div>
-    <div>
-      <button onclick="active">Employee requests</button>
-    </div>
+   <!-- Header template -->
+<div class="header">
+  <div class="left">
+      <div class="logo">WSO</div>
+      <button onclick="location.href='HomePage.html'">Home</button>
+      <button onclick="location.href='Program.html'">Program</button>
+      <button onclick="location.href='MyRequests.html'">My Requests</button>
+      <button onclick="location.href='NewRequest.html'">New Request</button>
   </div>
+  <div class="right">
+      <button onclick="location.href='EmployeeRequests.html'">Employee Requests</button>
+  </div>
+</div>
 
   <!-- Main Content -->
   <div class="main-content my-requests">

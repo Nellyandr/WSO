@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>New Request</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f0f4f8; /* πιο ανοιχτόχρωμο background */
+            background: #f0f4f8;
             padding: 0;
             margin: 0;
         }
 
         .header {
-            background-color: #1b4a56; /* ίδιο με το αρχικό background */
+            background-color: #1b4a56;
             padding: 15px 30px;
             display: flex;
             justify-content: space-between;
@@ -166,7 +166,6 @@
 </head>
 <body>
 
-<!-- Header template -->
 <div class="header">
     <div class="left">
         <div class="logo">WSO</div>
@@ -181,38 +180,38 @@
 </div>
 
 <div class="container">
-    <h1>Ημερολόγιο Αιτήσεων Άδειας</h1>
+    <h1>Day Off Request Calendar</h1>
 
     <div class="info">
-        Επιλέξτε μία ημέρα για να κάνετε αίτηση άδειας.<br>
-        Οι πράσινες ημέρες είναι διαθέσιμες.<br>
-        Οι κόκκινες ημέρες δεν είναι διαθέσιμες.<br>
-        Μέγιστο πλήθος αιτήσεων: 7.
+        Select a day to request a day off.<br>
+        Green days are available.<br>
+        Red days are unavailable.<br>
+        Maximum number of requests: 7.
     </div>
 
     <div class="calendar" id="calendar"></div>
 
     <div class="requests-left" id="requestsLeft">
-        7 υπολειπόμενες άδειες
+        7 remaining day offs
     </div>
 
     <div class="confirmation" id="confirmation"></div>
-    <div class="no-requests" id="noRequests" style="display:none;">Δεν έχετε υπολειπόμενα ρεπό</div>
+    <div class="no-requests" id="noRequests" style="display:none;">You have no remaining day offs</div>
 
-    <button class="button-next" onclick="nextWeek()">Επόμενη Εβδομάδα</button>
-    <button class="confirm-button" id="confirmLeaveBtn" style="display:none;" onclick="confirmLeave()">Επιβεβαίωση Άδειας</button>
+    <button class="button-next" onclick="nextWeek()">Next Week</button>
+    <button class="confirm-button" id="confirmLeaveBtn" style="display:none;" onclick="confirmLeave()">Confirm Day Off</button>
     
-    <button class="back-button" onclick="window.location.href='HomePage.html'">Επιστροφή στην Αρχική Οθόνη</button>
+    <button class="back-button" onclick="window.location.href='HomePage.html'">Return to Home Page</button>
 </div>
 
 <script>
     let weeks = [
-        ['Δευτέρα', 'Τετάρτη', 'Παρασκευή'], 
-        ['Τρίτη', 'Πέμπτη', 'Σάββατο'],       
-        ['Δευτέρα', 'Παρασκευή']              
+        ['Monday', 'Wednesday', 'Friday'], 
+        ['Tuesday', 'Thursday', 'Saturday'],       
+        ['Monday', 'Friday']              
     ];
 
-    const daysOfWeek = ['Δευτέρα', 'Τρίτη', 'Τετάρτη', 'Πέμπτη', 'Παρασκευή', 'Σάββατο', 'Κυριακή'];
+    const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     const calendar = document.getElementById('calendar');
     const confirmation = document.getElementById('confirmation');
     const requestsLeft = document.getElementById('requestsLeft');
@@ -243,17 +242,17 @@
     function selectDay(div, day) {
         if (remainingRequests > 0) {
             selectedDay = day;
-            confirmation.innerHTML = `Θέλετε να κάνετε αίτηση άδειας για την <strong>${day}</strong>?`;
+            confirmation.innerHTML = `Do you want to request a day off for <strong>${day}</strong>?`;
             confirmLeaveBtn.style.display = 'block';
         }
     }
 
     function confirmLeave() {
         if (selectedDay && remainingRequests > 0) {
-            const now = new Date().toLocaleString('el-GR');
-            confirmation.innerHTML = `Η αίτησή σας καταχωρήθηκε.<br> 
-            Ημέρα: <strong>${selectedDay}</strong><br>
-            Ώρα Δήλωσης: <strong>${now}</strong>`;
+            const now = new Date().toLocaleString('en-GB');
+            confirmation.innerHTML = `Your request has been submitted.<br> 
+            Day: <strong>${selectedDay}</strong><br>
+            Submitted at: <strong>${now}</strong>`;
             confirmation.style.display = 'block';
 
             remainingRequests--;
@@ -270,7 +269,7 @@
 
     function updateRequestsLeft() {
         if (remainingRequests > 0) {
-            requestsLeft.innerHTML = `${remainingRequests} υπολειπόμενες άδειες`;
+            requestsLeft.innerHTML = `${remainingRequests} remaining day offs`;
             noRequests.style.display = 'none';
         }
     }

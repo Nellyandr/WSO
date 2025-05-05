@@ -3,145 +3,121 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>WSO Registration Form</title>
+  <title>WSO Log In</title>
   <style>
     body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    background-color: #ffffff;
-    color: #000000;
-    font-family: Roboto, sans-serif;
-    font-size: 20px;
-  }
-  
-  /* Heading */
-  h1 {
-    margin: 0;
-    color: #1b4a56;
-    margin-top: 8px;
-    margin-left: 40px;
-    font-weight: 600;
-  }
-  
-  /* Paragraph */
-  p {
-    margin: 1em auto;
-    text-align: center;
-    font-weight: bolder;
-    color: #1b4a56;
-    font-size: 28px;
-    font-weight: 550;
-  }
-  
-  /* Form */
-  form {
-    width: 60%;
-    max-width: 500px;
-    min-width: 300px;
-    margin: 0 auto;
-    padding-bottom: 2em;
-  }
-  
-  /* Fieldsets */
-  fieldset {
-    border: none;
-    padding: 2rem 0;
-  }
-  
-  fieldset:last-of-type {
-    border-bottom: none;
-  }
-  
-  /* Labels */
-  label {
-    display: block;
-    margin: 0.5rem 0;
-  }
-  
-  /* Inputs and textarea */
-  input,
-  textarea {
-    margin: 10px 0 0 0;
-    width: 100%;
-    min-height: 2em;
-    background-color: #ffffff;
-    border: 2px solid #1b4a56;
-    border-radius: 12px;
-    color: #000000;
-  }
- 
-  .button-link {
-    display: block;
-    background-color: #1b4a56;
-    color: white;
-    padding: 10px 24px;
-    text-decoration: none;
-    font-size: 1.1rem;
-    border-radius: 12px;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 50%;
-    margin: 1em auto;
-  }
-  
-  .button-link:hover {
-    background-color: #163840;
-  }
-  
-  
-  
-  /* Checkbox styling */
-  label.checkbox-label {
-    display: flex !important;
-    align-items: center;
-    gap: 8px;
-    font-size: 18px;
-    line-height: 1.3;
-    margin: 0.5rem 0;
-  }
-  
-  label.checkbox-label input[type="checkbox"] {
-    width: 18px;
-    height: 18px;
-    margin: 0;
-    flex-shrink: 0;
-  }
-  
-  label.checkbox-label span {
-    margin-top: 1px; 
-  }
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background-color: #ffffff;
+      color: #000000;
+      font-family: Roboto, sans-serif;
+      font-size: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      color: #1b4a56;
+      margin-top: 8px;
+      margin-left: 40px;
+      font-weight: 600;
+    }
+
+    p {
+      margin: 1em auto;
+      text-align: center;
+      font-weight: bolder;
+      color: #1b4a56;
+      font-size: 28px;
+      font-weight: 550;
+    }
+
+    form {
+      width: 60%;
+      max-width: 500px;
+      min-width: 300px;
+      margin: 0 auto;
+      padding-bottom: 2em;
+    }
+
+    fieldset {
+      border: none;
+      padding: 2rem 0;
+    }
+
+    label {
+      display: block;
+      margin: 0.5rem 0;
+    }
+
+    input,
+    textarea {
+      margin: 10px 0 0 0;
+      width: 100%;
+      min-height: 2em;
+      background-color: #ffffff;
+      border: 2px solid #1b4a56;
+      border-radius: 12px;
+      color: #000000;
+    }
+
+    .button-link {
+      display: block;
+      background-color: #1b4a56;
+      color: white;
+      padding: 10px 24px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      border-radius: 12px;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 50%;
+      margin: 1em auto;
+    }
+
+    .button-link:hover {
+      background-color: #163840;
+    }
+
+    label.checkbox-label {
+      display: flex !important;
+      align-items: center;
+      gap: 8px;
+      font-size: 18px;
+      line-height: 1.3;
+      margin: 0.5rem 0;
+    }
+
+    label.checkbox-label input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin: 0;
+      flex-shrink: 0;
+    }
+
+    label.checkbox-label span {
+      margin-top: 1px; 
+    }
   </style>
 </head>
 
 <body>
   <h1>WSO</h1>
 
-  <form action="#" th:action="@{/registrationform}" method="post" th:object="${user}" enctype="multipart/form-data">
-
+  <form action="#" th:action="@{/login}" method="post" th:object="${user}">
     <fieldset>
-      <p>Welcome to WSO – Let’s get you signed up!</p>
+      <p>Welcome to WSO – Let’s get you logged in!</p>
 
-      <label for="name">
-        First Name
-        <input id="name" name="name" type="text" required />
-      </label>
-
-      <label for="last-name">
-        Last Name
-        <input id="last-name" name="last-name" type="text" required />
+      <label for="email">
+        Email
+        <input id="email" name="email" type="email" required />
       </label>
 
       <label for="job">
         Job Position
         <input id="job" name="job" type="text" required />
-      </label>
-
-      <label for="email">
-        Personal Email
-        <input id="email" name="email" type="email" required />
       </label>
 
       <label for="password">
@@ -162,14 +138,12 @@
       </label>
 
       <label class="checkbox-label">
-        <input type="checkbox" name="terms-and-conditions" />
+        <input type="checkbox" name="remember-me" />
         <span>Remember me</span>
       </label>
     </fieldset>
-    
-    <a href="HomePage.html" class="button-link">Sign up</a>
 
-    
+    <a href="HomePage.html" class="button-link">Log in</a>
   </form>
 </body>
 </html>

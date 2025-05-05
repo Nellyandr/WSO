@@ -2,13 +2,51 @@
 <html lang="el">
 <head>
   <meta charset="UTF-8">
-  <title>Employee Requests</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Αιτήσεις</title>
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
       background-color: #f4f6f8;
-      margin: 0;
-      padding: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .navbar {
+      background-color: #1b4a56;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    .navbar button {
+      background-color: rgba(136, 181, 192, 0.4);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 999px;
+      transition: background-color 0.3s;
+      backdrop-filter: blur(4px);
+    }
+
+    .navbar button:hover {
+      background-color: #555;
+    }
+
+    .wso {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 30px;
+      color: #3498db;
+      font-weight: bold;
     }
 
     header {
@@ -58,24 +96,13 @@
       left: 4px;
     }
 
-    .wso {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 30px;
-      color: #3498db; 
-      font-weight: bold;
-    }
-
     .container {
       padding: 20px;
       max-width: 800px;
-      margin: auto;
+      margin: 20px auto;
       background: white;
-      margin-top: 20px;
       border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
 
     .request {
@@ -131,6 +158,20 @@
   </style>
 </head>
 <body>
+
+  <div class="navbar">
+    <div>
+      <button>Πρόγραμμα</button>
+      <button>Οι Αιτήσεις Μου</button>
+      <button>Νέα Αίτηση</button>
+    </div>
+    <div>
+      <button>Αιτήσεις Υπαλλήλων</button>
+    </div>
+  </div>
+
+  <div class="wso">WSO</div>
+
   <header>
     <button class="home-button" onclick="location.href='index.html'">
       <div class="home-icon">
@@ -139,7 +180,6 @@
       </div>
     </button>
     <h1>ΑΙΤΗΣΕΙΣ</h1>
-    <span class="wso">WSO</span>
   </header>
 
   <div class="container" id="requestsContainer">
@@ -149,7 +189,6 @@
         <div class="details">
           <span>Ημέρα: Δευτέρα</span>
           <span>Ημερομηνία: 10/06/2025</span>
-          <span>Βάρδια: Πρωί</span>
         </div>
       </div>
       <div class="buttons">
@@ -164,7 +203,20 @@
         <div class="details">
           <span>Ημέρα: Τετάρτη</span>
           <span>Ημερομηνία: 12/06/2025</span>
-          <span>Βάρδια: Βράδυ</span>
+        </div>
+      </div>
+      <div class="buttons">
+        <button class="accept" onclick="handleDecision(this, true)">Αποδοχή</button>
+        <button class="reject" onclick="handleDecision(this, false)">Απόρριψη</button>
+      </div>
+    </div>
+
+    <div class="request">
+      <div>
+        <strong>Αλέξανδρος Κωνσταντίνου</strong>
+        <div class="details">
+          <span>Ημέρα: Παρασκευή</span>
+          <span>Ημερομηνία: 14/06/2025</span>
         </div>
       </div>
       <div class="buttons">

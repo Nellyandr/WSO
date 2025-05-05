@@ -4,7 +4,149 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Page</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  
+  .navbar {
+    background-color: #1b4a56;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+  
+  .navbar > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .navbar button {
+    background-color: rgba(136, 181, 192, 0.4);
+    color: white;
+    border: none;
+    padding: 10px 20px; 
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 999px; 
+    transition: background-color 0.3s;
+    backdrop-filter: blur(4px); 
+  }
+  
+  
+  
+  .navbar button:hover {
+    background-color: #555;
+  }
+  
+
+  
+  .main-content {
+    flex: 1;
+    display: flex;
+  }
+  
+  .left-side, .right-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* ICON */
+  .user-img {
+    width: 200px;
+    height: auto;
+  }
+  
+  .icon-circle-wrapper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: auto;
+  }
+  
+  .center-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  
+  .circle-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .icon1 {
+    top: -10%;       
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  
+  .icon2 {
+    top: 50%;
+    left: 110%;      
+    transform: translate(-100%, -50%);
+  }
+  
+  .icon3 {
+    top: 110%;     
+    left: 50%;
+    transform: translate(-50%, -100%);
+  }
+  
+  .icon4 {
+    top: 50%;
+    left: -10%;     
+    transform: translate(0, -50%);
+  }
+  
+  
+  
+  .text-container {
+    text-align: center;
+    max-width: 700px;
+    margin-left: -150px;
+    white-space: nowrap;
+  }
+
+  .text-container h1 {
+    font-size: 35px;
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  
+  .text-container p {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+ 
+  @media (max-width: 768px) {
+    .main-content {
+      flex-direction: column;
+    }
+  
+    .left-side, .right-side {
+      width: 100%;
+      padding: 20px 0;
+    }
+  }
+  
+  </style>
 </head>
 <body>
 

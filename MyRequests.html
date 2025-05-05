@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Requests</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+ .navbar {
+    background-color: #1b4a56;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+ 
+  .navbar > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+ 
+  .navbar button {
+    background-color: rgba(136, 181, 192, 0.4);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 999px;
+    transition: background-color 0.3s;
+    backdrop-filter: blur(4px);
+  }
+ 
+ 
+ 
+  .navbar button:hover {
+    background-color: #555;
+  }
+ 
+
+
+ 
+  .main-content {
+    flex: 1;
+    display: flex;
+  }
+ 
+  .left-side, .right-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main content styles */
+.main-content {
+  padding: 20px;
+  max-width: 800px;
+  margin: 30px auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Request item styles */
+.request-item {
+  border-left: 5px solid #ccc;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+.request-item.accepted {
+  border-color: #28a745;
+  background-color: #e9f7ef;
+}
+
+.request-item.in-progress {
+  border-color: #ffc107;
+  background-color: #fffbe6;
+}
+
+.request-item.declined {
+  border-color: #dc3545;
+  background-color: #f8d7da;
+}
+
+/* Status text */
+.status {
+  display: inline-block;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+/* Alternative dates (for declined requests) */
+.alternative-dates {
+  margin-top: 10px;
+  background-color: #fff3cd;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.alternative-dates ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.alternative-dates li {
+  margin-bottom: 5px;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar with Home button -->
+  <div class="navbar">
+    <div>
+      <button onclick="location.href='index.html'">Home</button>  <!-- Home Button -->
+      <button onclick="location.href='index.html'">Programm</button>
+      <button class="active" onclick="location.href='my-requests.html'">My Requests</button>
+      <button onclick="active">New Request</button>
+    </div>
+    <div>
+      <button onclick="active">Employee requests</button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content my-requests">
+    <div class="requests-container">
+      <h1>Οι Αιτήσεις μου</h1>
+
+      <div class="request-item accepted">
+        <p><strong>Αίτηση #001:</strong> Άδεια για 10 Μαΐου</p>
+        <span class="status">Έγινε Δεκτή</span>
+      </div>
+
+      <div class="request-item in-progress">
+        <p><strong>Αίτηση #002:</strong> Ρεπό στις 25 Απριλίου</p>
+        <span class="status">Σε Εξέλιξη</span>
+      </div>
+
+      <div class="request-item declined">
+        <div class="declined-content">
+          <p><strong>Αίτηση #003:</strong> Άδεια στις 30 Απριλίου</p>
+          <span class="status">Απορρίφθηκε</span>
+        </div>
+        <div class="alternative-dates">
+          <p>⚠ Οι παρακάτω ημερομηνίες είναι διαθέσιμες:</p>
+          <ul>
+            <li>2 Μαΐου 2025</li>
+            <li>3 Μαΐου 2025</li>
+            <li>6 Μαΐου 2025</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
+
+
